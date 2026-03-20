@@ -37,24 +37,28 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background: #080808;
+            background: #0e0e0e;
             color: #ccc;
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         a { color: inherit; text-decoration: none; }
 
         .wrap {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem 3rem;
+            width: 100%;
+            max-width: 620px;
+            padding: 3rem 2.5rem;
         }
 
         /* ---- the name ---- */
         .name {
             font-family: 'Space Mono', monospace;
-            font-size: clamp(5rem, 18vw, 8rem);
+            font-size: clamp(5rem, 20vw, 10rem);
             font-weight: 700;
             line-height: 0.85;
             color: #ff2d7b;
@@ -64,10 +68,10 @@
 
         /* ---- bio ---- */
         .bio {
-            font-size: 0.95rem;
-            line-height: 1.55;
+            font-size: 1.05rem;
+            line-height: 1.6;
             color: #888;
-            max-width: 340px;
+            max-width: 420px;
             margin-bottom: 2.5rem;
         }
 
@@ -87,7 +91,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.9rem 0;
+            padding: 1rem 0;
             border-top: 1px solid #1a1a1a;
             transition: padding-left 0.15s;
         }
@@ -115,7 +119,7 @@
 
         .link-name {
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             color: #ddd;
         }
 
@@ -145,8 +149,26 @@
             letter-spacing: 0.1em;
         }
 
+        /* on tall screens where content doesn't fill, let wrap stretch and space out */
+        @media (min-height: 700px) {
+            .wrap {
+                min-height: 90vh;
+                min-height: 90dvh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        /* on mobile, use full width */
         @media (max-width: 480px) {
-            .wrap { padding: 3rem 1.25rem 2rem; }
+            .wrap { padding: 2.5rem 1.5rem 2rem; }
+            .name { margin-bottom: 1rem; }
+        }
+
+        /* wide screens: let it breathe more */
+        @media (min-width: 1200px) {
+            .wrap { max-width: 700px; }
         }
     </style>
 </head>
